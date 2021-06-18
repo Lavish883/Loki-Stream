@@ -13,8 +13,7 @@
 </head>
 <body onresize="resizeBody()" style="overflow:hidden;">
   <script>
-    setTimeout (function() {
-        var videoToPlay = window.location.href;
+    var videoToPlay = window.location.href;
         var videoToPlay2 = videoToPlay.split(window.location.origin + window.location.pathname)
         var videoToPlay3 = videoToPlay.split("?play=")
         function resizeBody() {
