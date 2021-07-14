@@ -10,8 +10,15 @@
   <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-quality-levels@2.0.6/dist/videojs-contrib-quality-levels.js"></script>
   <script src="https://7ds7.github.io/videojs-vjsdownload/dist/videojs-vjsdownload.js"></script>
   <link rel="stylesheet" href="https://gogoanime.vc/css/style.css?v=8.3">
+  <link rel="stylesheet" href="https://unpkg.com/videojs-overlay-buttons@latest/dist/videojs-overlay-buttons.css" />
+  <script src="https://unpkg.com/videojs-overlay-buttons@latest/dist/videojs-overlay-buttons.min.js"></script>
 </head>
 <body onresize="resizeBody()" style="overflow:hidden;">
+  <style>
+    .video-js .vjs-big-play-button {
+            display:none;
+        }
+  </style>
   <script>
         var videoToPlay = window.location.href;
         var videoToPlay2 = videoToPlay.split(window.location.origin + window.location.pathname)
@@ -61,7 +68,7 @@
                     },
                 }
             }, function () {
-
+                player.touchOverlay();
             });
         } else {
             console.log('hls');
@@ -78,6 +85,7 @@
                     }
                 }
             }, function () {
+                player.touchOverlay();
                 let qualityLevels = player.qualityLevels();
 
                 // disable quality levels with less than 720 horizontal lines of resolution when added
