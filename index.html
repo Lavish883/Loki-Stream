@@ -9,8 +9,15 @@
     <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
     <link href="https://7ds7.github.io/videojs-vjsdownload/dist/videojs-vjsdownload.css" rel="stylesheet">
     <script src="https://7ds7.github.io/videojs-vjsdownload/dist/videojs-vjsdownload.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/videojs-overlay-buttons@latest/dist/videojs-overlay-buttons.css" />
+    <script src="https://unpkg.com/videojs-overlay-buttons@latest/dist/videojs-overlay-buttons.min.js"></script>
 </head>
   <body onresize="resizeBody();" style="height:100%;margin:0px;overflow:hidden;background-color:black;">
+      <style>
+        .video-js .vjs-big-play-button {
+            display:none;
+        }
+     </style>
       <script defer>
           let link = window.location.href.split('/Loki-Stream/?')[1];
           async function fetchSource(link) {
@@ -44,6 +51,7 @@
                           }
                       }
                   }, function () {
+                    player.touchOverlay();
                     player.getChild('controlBar').addChild('QualitySelector');
                     player.getChild('controlBar').removeChild('fullscreenToggle');
                     player.getChild('controlBar').addChild('fullscreenToggle');
@@ -65,6 +73,7 @@
                       let qualityLevels = player.qualityLevels();
                       // disable quality levels with less than 720 horizontal lines of resolution when added
                       // to the list.
+                      player.touchOverlay();
                       qualityLevels.on('addqualitylevel', function (event) {
                           let qualityLevel = event.qualityLevel;
 
