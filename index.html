@@ -12,9 +12,9 @@
 </head>
   <body onresize="resizeBody();" style="height:100%;margin:0px;overflow:hidden;background-color:black;">
       <script defer>
-          let link = window.location.href.split('watch.html?')[1];
+          let link = window.location.href.split('/Loki-Stream/?')[1];
           async function fetchSource(link) {
-              let fetchLink = "http://localhost:8190/watch/" + link;
+              let fetchLink = "https://takemyassm3u8maker.herokuapp.com/watch/" + link;
               // Fetch video link
               let fetchRequest = await fetch(fetchLink);
               let fetchResponse = await fetchRequest.text();
