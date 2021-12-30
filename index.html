@@ -37,7 +37,7 @@
               // If mp4 file handle qualties and sources differntly
               const sources = JSON.parse(fetchResponse);
               if (sources[0].type === 'mp4') {
-                  for (var i = sources.length - 1; i > 0; i--) {
+                  for (var i = sources.length - 1; i >= 0; i--) {
                       let source = document.createElement('source');
                       source.setAttribute('label' , sources[i].label);
                       source.setAttribute('src' , sources[i].file);
