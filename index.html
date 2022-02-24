@@ -36,6 +36,7 @@
               console.log(JSON.parse(fetchResponse));
               // If mp4 file handle qualties and sources differntly
               const sources = JSON.parse(fetchResponse);
+              <!---
               if (sources[0].type === 'mp4') {
                   for (var i = sources.length - 1; i >= 0; i--) {
                       let source = document.createElement('source');
@@ -57,6 +58,7 @@
                     player.getChild('controlBar').addChild('fullscreenToggle');
                   })
               } else {
+                  -->
                   // If a hls file then handle like hls way
                   let source = document.createElement('source');
                   source.setAttribute('src', fetchResponse);
@@ -107,7 +109,7 @@
                           console.log('Quality Level changed!');
                       });
                   })
-              }
+              // }
               return 'finished';
           }
           function resizeBody() {
